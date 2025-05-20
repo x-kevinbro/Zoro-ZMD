@@ -293,7 +293,7 @@ async function connectToWA() {
                                         if (mek.key.fromMe) return
                                         await conn.sendMessage(from, { delete: mek.key })
                                         await conn.sendMessage(from, { text: '*Bad word detected..!*' })
-                                        //  await conn.groupParticipantsUpdate(from,[sender], 'remove')
+                                        //  await conn.groupParticipantsUpdate(from,[sender], 'remove')
                                     }
                                 }
                             }
@@ -359,3 +359,4 @@ async function connectToWA() {
             //======================================================
             if (body === "send" || body === "Send" || body === "Ewpm" || body === "ewpn" || body === "Dapan" || body === "dapan" || body === "oni" || body === "Oni" || body === "save" || body === "Save" || body === "ewanna" || body === "Ewanna" || body === "ewam" || body === "Ewam" || body === "sv" || body === "Sv" || body === "දාන්න" || body === "එවම්න") {
                 // if(!m.quoted) return reply("*Please Mention status*")
+                const data
