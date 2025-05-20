@@ -90,7 +90,7 @@ async function connectToWA() {
         } else if (connection === 'open') {
             console.log('😼 Installing...');
             console.log('Plugins installed successfully ✅');
-            console.log('Queen Rashu Md Bot connected to WhatsApp ✅');
+            console.log('Queen Thaaruki connected to WhatsApp ✅');
 
             // Get the current date and time
             const now = new Date();
@@ -162,7 +162,7 @@ async function connectToWA() {
 }
 
 app.get("/", (req, res) => {
-    res.send("Queen Rashu Md Bot, bot started✅");
+    res.send("Queen Thaaruki Bot, bot started✅");
 });
 
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
