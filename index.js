@@ -97,18 +97,23 @@ async function connectToWA() {
             const formattedDate = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
             const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-            // All plugins import
-            const pluginsPath = path.join(__dirname, 'plugins');
-            const pluginFiles = fs.readdirSync(pluginsPath).filter(file => file.endsWith('.js'));
+// Dynamically load all plugins
+function loadPlugins(conn) {
+    const pluginFiles = fs.readdirSync(pluginsPath).filter(file => file.endsWith('.js'));
 
-            pluginFiles.forEach(file => {
-                try {
-                    require(path.join(pluginsPath, file));
-                    console.log(`Loaded plugin: ${file}`);
-                } catch (err) {
-                    console.error(`Failed to load plugin: ${file}`, err);
-                }
-            });
+    pluginFiles.forEach(file => {
+        try {
+            const plugin = require(path.join(pluginsPath, file));
+            if (typeof plugin === 'function') {
+                plugin(conn); // Pass the connection object if needed
+            }
+            console.log(`Loaded plugin: ${file}`);
+        } catch (err) {
+            console.error(`Failed to load plugin: ${file}`, err);
+        }
+    });
+}
+
 
             let up = `*𝐐𝐔𝚵𝚵𝚴 𝚻𝚮𝚫𝚫𝚪𝐔𝐊𝚰 HAS BEEN CONNECTED⚡*
     
