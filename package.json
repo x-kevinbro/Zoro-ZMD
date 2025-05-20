@@ -9,7 +9,7 @@
     "restart": "pm2 restart ZORO-MD"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "latest",
+    "darksadas-new-baliyes": "latest",
     "@adiwajshing/keyed-db": "latest",
     "@distube/ytdl-core": "latest",
     "pino": "latest",
