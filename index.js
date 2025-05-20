@@ -16,7 +16,7 @@ const {
     getContentType,
     fetchLatestBaileysVersion,
     Browsers
-} = require('darksadas-new-baliyes');
+} = require('@whiskeysockets/baileys');
 
 const prefix = '.';
 const l = console.log;
