@@ -29,6 +29,7 @@ const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
+const path = require('path');
 
 const ownerNumber = ['94756539252']
 
@@ -105,20 +106,27 @@ let up = `*𝚭𝚯𝚪𝚯 𝚭𝚳𝐃 HAS BEEN CONNECTED⚡*
 
 *🌻 𝙲𝙾𝙽𝙽𝙴𝙲𝚃𝙴𝙳 𝙾𝙽:* ${formattedDate} at ${formattedTime}
 ╭────────────────────────┈⊷
-┃ *♾️ REPO:* 
-┃ *♾️ GET SESSION:* 
+┃ *♾️ REPO:*
+┃ *♾️ GET SESSION:*
 ┃ *♾️ SUPPORT GROUP:*
-┃ *♾️ FOLLLOW US;* 
+┃ *♾️ FOLLLOW US;*
 ╰────────────────────────┈⊷
 •••THANKS FOR USING OUR BOT•••
 *•────────────╴╴╴•⟢*
-> *© 𝚉𝙾𝚁𝙾 𝚉𝙼𝙳 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿-𝙱𝙾𝚃 ✾*
+> *© 𝚉𝙾𝚁𝙾 𝚉𝙼𝙳 𝚆𝙷𝙰ТСАPP-BOT ✾*
 *•────────────╴╴╴•⟢*`;
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://files.catbox.moe/6iq7w6.jpg` }, caption: up })
+// Construct the full path to your video file
+const videoPath = path.join(__dirname, 'themes', '0520.mp4'); // Replace 'your_video_file.mp4' with the actual filename
 
-}
-})
+fs.readFile(videoPath, (err, videoData) => {
+  if (err) {
+    console.error('Error reading video file:', err);
+    return;
+  }
+
+  conn.sendMessage(ownerNumber + "@s.whatsapp.net", { video: videoData, caption: up });
+});
 conn.ev.on('creds.update', saveCreds)  
 
 conn.ev.on('messages.upsert', async(mek) => {
