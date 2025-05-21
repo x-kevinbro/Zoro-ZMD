@@ -77,17 +77,17 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const path = require('path');
 
       // Generate system status message
-        const status = `╔═══════〔 𝐐𝐔𝐄𝐄𝐍 𝐓𝐇𝐀𝐀𝐑𝐔𝐊𝐈 〕═══════╗
-   ✨ Hello, ${pushname}! I'm here. ✨
-╚══════════════════════════════╝
-  ┃*🕰️ Uptime:* ${runtime(process.uptime())}
-  ┃*💾 RAM Usage:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
-               / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
-  ┃*💻 Host:* ${os.hostname()}
-  ┃*👑 Owner:* ZORO-ZMD
-  ┃*⚙️ Version:* 1.0 (Beta)
+        const status = `╔════〔 𝐐𝐔𝐄𝐄𝐍 𝐓𝐇𝐀𝐀𝐑𝐔𝐊𝐈 ════╗
+     ✨ Hello, 𝙭-𝗞𝗲𝘃𝗶𝗻! I'm here. ✨
+╚═══════════════════════╝
+  ┃*🕰 Uptime:* 3 minutes, 31 seconds
+  ┃*💾 RAM Usage:* 50.87MB
+               / 63783.96MB
+  ┃*💻 Host:* d35b2c31-28bd-4539-b008-05eba0be0cfc
+  ┃*👑 Owner:* 𝙭-𝗞𝗲𝘃𝗶𝗻
+  ┃*⚙ Version:* 1.0 (Beta)
 ╰────────────────────────┈⊷
-> *©𝚀𝚄𝙴𝙴𝙽 𝚃𝙷𝙰𝙰𝚁𝚄𝙺𝙸 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃✾*`;
+> ©𝚀𝚄𝙴𝙴𝙽 𝚃𝙷𝙰𝙰𝚁𝚄𝙺𝙸 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝙱𝙾𝚃✾`;
 
 // ... your status message code ...
 
