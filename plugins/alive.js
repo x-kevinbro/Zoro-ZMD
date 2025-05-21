@@ -77,7 +77,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const path = require('path');
 
       // Generate system status message
-        const status = `╔════〔 𝐐𝐔𝐄𝐄𝐍 𝐓𝐇𝐀𝐀𝐑𝐔𝐊𝐈 ════╗
+        const status = ` ╔═══〔 𝐐𝐔𝐄𝐄𝐍 𝐓𝐇𝐀𝐀𝐑𝐔𝐊𝐈 〕═══╗
      ✨ Hello, 𝙭-𝗞𝗲𝘃𝗶𝗻! I'm here. ✨
 ╚═══════════════════════╝
   ┃*🕰 Uptime:* 3 minutes, 31 seconds
@@ -92,13 +92,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 // ... your status message code ...
 
         // Send the status message with a video file
-        // Import the video file from your themes folder (outside plugins)
         const videoPath = path.join(__dirname, '../themes/Alive.mp4');
-
-        // Read the video file as a buffer
         const videoBuffer = await fs.readFile(videoPath);
 
-        // Send the video with the status message
         await conn.sendMessage(from, { 
             video: videoBuffer,
             caption: status,
@@ -112,6 +108,16 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                 serverMessageId: 143
             }
             }
+        }, { quoted: mek });
+
+        // Send an mp3 file after the alive message
+        const mp3Path = path.join(__dirname, '../themes/Alive.mp3'); // Change filename as needed
+        const mp3Buffer = await fs.readFile(mp3Path);
+
+        await conn.sendMessage(from, {
+            audio: mp3Buffer,
+            mimetype: 'audio/mp3',
+            ptt: true // set to true if you want to send as voice note
         }, { quoted: mek });
 
     } catch (e) {
